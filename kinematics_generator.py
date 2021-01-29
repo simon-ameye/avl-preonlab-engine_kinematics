@@ -56,7 +56,6 @@ crank["revolutions per second"] = vel /60 * rotation_direction
 
 piston["position"] = [d, 0, 0]
 
-
 w = vel /60 * 2*math.pi
 t_end = 1/(vel/60)
 
@@ -81,19 +80,12 @@ while t <= t_end:
 
     rod_theta = math.atan((-rod_big_end_x + rod_small_end_x) / (-rod_big_end_z + rod_small_end_z))
     
-    
     piston_z_keys = piston_z_keys + [(t, piston_z, "Linear")]
     rod_x_keys = rod_x_keys +  [(t, rod_big_end_x, "Linear")]
     rod_z_keys = rod_z_keys +  [(t, rod_big_end_z, "Linear")]
     rod_theta_keys = rod_theta_keys +  [(t, rod_theta * 180 / math.pi, "Linear")]
 
-
-
-    print(theta)
-    
     t = t + (t_end / nb_samples)
-
-
 
 piston.set_keyframes("position z", piston_z_keys)
 rod.set_keyframes("position x", rod_x_keys)
