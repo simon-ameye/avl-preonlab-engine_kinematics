@@ -16,6 +16,6 @@ Parameters description :
      r \   \/  v
         v
 
-         <----->
+         <---->
            d
 """
