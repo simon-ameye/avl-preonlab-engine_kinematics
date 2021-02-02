@@ -23,8 +23,9 @@ Parameters description :
 rotation_direction = 1 #[-] - direction of rotation
 r = 0.0406 #[m] - crankshaft radius
 b = 0.128 #[m] - connecting rod length
-d = 30e-3 #[m] - cylinder offcet
+d = 0e-3 #[m] - cylinder offcet
 vel = 4500 #[RPM] - rotation speed
+initian_rotation = 89.6 #[deg] - initial rotation : Useful to set up multiple cylinder !
 
 #Advanced data
 nb_samples = 20 #[-] - nb of samples
@@ -68,7 +69,7 @@ initial_piston_z = r + math.sqrt(b**2 - (d)**2)
 
 t = 0
 while t <= t_end:
-    theta = w * t * rotation_direction
+    theta = (w * t + + initian_rotation / 180 * math.pi) * rotation_direction
     
     piston_z = r*math.cos(theta) + math.sqrt(b**2 - (r*math.sin(theta) - d)**2)
     
