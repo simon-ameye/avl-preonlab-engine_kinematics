@@ -29,7 +29,7 @@ initial_rotation = 89.6 #[deg] - initial rotation : Useful to set up multiple cy
 
 #Advanced data
 nb_samples = 20 #[-] - nb of samples
-loop_end_time = 10
+loop_end_time = 10 #[s] - looping end time
 
 #Import
 import math
