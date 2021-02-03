@@ -98,4 +98,6 @@ rod.set_loop_keyframes("position x",[(loop_end_time, nb_samples + 1)])
 rod.set_loop_keyframes("position z",[(loop_end_time, nb_samples + 1)])
 rod.set_loop_keyframes("euler angles theta",[(loop_end_time, nb_samples + 1)])
 
+s.load_frame(0)
+
 print("Done!")
