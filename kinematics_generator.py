@@ -24,7 +24,7 @@ rotation_direction = 1 #[-] - direction of rotation
 r = 0.0406 #[m] - crankshaft radius
 b = 0.128 #[m] - connecting rod length
 d = 30e-3 #[m] - cylinder offcet
-vel = 4500 #[RPM] - rotation speed
+vel = 2400 #[RPM] - rotation speed
 initial_rotation = 89.6 #[deg] - initial rotation : Useful to set up multiple cylinder !
 
 #Advanced data
@@ -67,8 +67,9 @@ rod_theta_keys = []
 
 initial_piston_z = r + math.sqrt(b**2 - (d)**2)
 
-t = 0
-while t <= t_end:
+times = [x*t_end/(nb_samples - 1) for x in range(nb_samples)]
+
+for t in times:
     theta = (w * t + + initial_rotation / 180 * math.pi) * rotation_direction
     
     piston_z = r*math.cos(theta) + math.sqrt(b**2 - (r*math.sin(theta) - d)**2)
@@ -86,17 +87,15 @@ while t <= t_end:
     rod_z_keys = rod_z_keys +  [(t, rod_big_end_z, "Linear")]
     rod_theta_keys = rod_theta_keys +  [(t, rod_theta * 180 / math.pi, "Linear")]
 
-    t = t + (t_end / nb_samples)
-
 piston.set_keyframes("position z", piston_z_keys)
 rod.set_keyframes("position x", rod_x_keys)
 rod.set_keyframes("position z", rod_z_keys)
 rod.set_keyframes("euler angles theta", rod_theta_keys)
 
-piston.set_loop_keyframes("position z",[(loop_end_time, nb_samples + 1)])
-rod.set_loop_keyframes("position x",[(loop_end_time, nb_samples + 1)])
-rod.set_loop_keyframes("position z",[(loop_end_time, nb_samples + 1)])
-rod.set_loop_keyframes("euler angles theta",[(loop_end_time, nb_samples + 1)])
+piston.set_loop_keyframes("position z",[(loop_end_time, nb_samples)])
+rod.set_loop_keyframes("position x",[(loop_end_time, nb_samples)])
+rod.set_loop_keyframes("position z",[(loop_end_time, nb_samples)])
+rod.set_loop_keyframes("euler angles theta",[(loop_end_time, nb_samples)])
 
 s.load_frame(0)
 
