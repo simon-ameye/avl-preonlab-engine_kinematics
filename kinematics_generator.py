@@ -42,10 +42,10 @@ crank = s.create_object("Transform group")
 rod = s.create_object("Transform group")
 piston = s.create_object("Transform group")
 
-main["name"] = "main"
-crank["name"] = "crankshaft"
-rod["name"] = "connecting_rod"
-piston["name"] = "piston"
+main["name"] = "main_tg"
+crank["name"] = "crankshaft_tg"
+rod["name"] = "connecting_rod_tg"
+piston["name"] = "piston_tg"
 
 preonpy.connect_objects(main, crank, "Transform")
 preonpy.connect_objects(main, rod, "Transform")
