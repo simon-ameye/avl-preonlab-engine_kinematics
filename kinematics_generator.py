@@ -28,7 +28,7 @@ vel = 2400 #[RPM] - rotation speed
 initial_rotation = 89.6 #[deg] - initial rotation : Useful to set up multiple cylinder !
 
 #Advanced data
-nb_samples = 20 #[-] - nb of samples
+nb_samples = 40 #[-] - nb of samples
 loop_end_time = 10 #[s] - looping end time
 
 #Import
